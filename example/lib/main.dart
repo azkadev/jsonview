@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:jsonview/jsonview.dart';
+
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData( 
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -29,15 +31,15 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    setState(() { 
+    setState(() {
       _counter++;
     });
   }
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( 
+      appBar: AppBar(
         title: Text(widget.title),
       ),
       body: JsonToWidget({
@@ -46,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           {
             "@type": "Padding",
             "padding": {
-              "@type": "all",
+              "@type": "EdgeInsets.all",
               "value": _counter,
             },
             "child": {
@@ -55,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 "@type": "Container",
                 "child": {
                   "@type": "Text",
-                  "data": "Hello world ${_counter}",
+                  "data": "Hello world $_counter",
                 }
               }
             },
@@ -66,7 +68,37 @@ class _MyHomePageState extends State<MyHomePage> {
               "@type": "Container",
               "child": {
                 "@type": "Text",
-                "data": "Hello world ${_counter}",
+                "data": "Hello world $_counter",
+              }
+            }
+          },
+          {
+            "@type": "Padding",
+            "padding": const {
+              "@type": "EdgeInsets.symmetric",
+              "vertical": 50,
+            },
+            "child": {
+              "@type": "Padding",
+              "padding": const {
+                "@type": "EdgeInsets.all",
+                "value": 10,
+              },
+              "child": {
+                "@type": "Row",
+                "children": List.generate(5, (index) {
+                  return {
+                    "@type": "Padding",
+                    "padding": {
+                      "@type": "EdgeInsets.all",
+                      "value": 10,
+                    },
+                    "child": {
+                      "@type": "Text",
+                      "data": "Row Text $index",
+                    }
+                  };
+                })
               }
             }
           },
@@ -76,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

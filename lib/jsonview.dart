@@ -32,6 +32,13 @@ Widget jsonToWidget(Map? data) {
       );
     }
 
+    if (RegExp(r"^(Padding)$", caseSensitive: false).hasMatch(type)) {
+      return Padding(
+        padding: jsonToEdgeInsetsGeometry(data["padding"]),
+        child: jsonToWidget(data["child"]),
+      );
+    }
+
     if (RegExp(r"^(Text)$", caseSensitive: false).hasMatch(type)) {
       return Text("${data["data"]}");
     }
@@ -68,4 +75,20 @@ Widget jsonToWidget(Map? data) {
     }
   }
   return Container();
+}
+
+EdgeInsetsGeometry jsonToEdgeInsetsGeometry(Map? data) {
+  data ??= {};
+  if (data["@type"] is String) {
+    String type = data["@type"];
+    if (RegExp(r"^(all)$", caseSensitive: false).hasMatch(type)) {
+      late double value = 0;
+      if (data["value"] is num) {
+        value = (data["value"] as num).toDouble();
+      }
+      return EdgeInsets.all(value);
+    }
+  }
+
+  return const EdgeInsets.all(0);
 }

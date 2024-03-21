@@ -1,6 +1,8 @@
-# jsonview
+IyBqc29udmlldwoKTGlicmFyeSB1bnR1ayBtZW1idWF0IHdpZGdldCAvIGFw
+cCBkYXJpIGRhdGEganNvbgoKIyMgU2NyZWVuc2hvdAohW10oaHR0cHM6Ly9y
+YXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2F6a2FkZXYvanNvbnZpZXcvbWFp
+bi9zY3JlZW5zaG90L3NjcmVlbnNob3QucG5nKQ==
 
-Library untuk membuat widget / app dari data json
-
-## Screenshot
-![](https://raw.githubusercontent.com/azkadev/jsonview/main/screenshot/screenshot.png)
+<!-- START GLOBAL CORPORATION -->
+404: Not Found
+<!-- END GLOBAL CORPORATION -->
